@@ -9,6 +9,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ApiService client = ApiService();
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[300],
+        elevation: 0,
+        centerTitle: true,
+        title: const Text("News App"),
+      ),
       //Now let's call the Api Service with futurebuilder widget
       body: SafeArea(
         child: FutureBuilder(

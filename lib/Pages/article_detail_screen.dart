@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_api/models/article_model.dart';
 
-class ArticleDetailScreen extends StatelessWidget {
+class ArticleDetailScreen extends StatefulWidget {
   const ArticleDetailScreen({super.key, required this.article});
   final Article article;
 
+  @override
+  State<ArticleDetailScreen> createState() => _ArticleDetailScreenState();
+}
+
+class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
+  bool showIcon = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +28,13 @@ class ArticleDetailScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_border_outlined,
-              color: Colors.black,
+            onPressed: () {
+              showIcon = !showIcon;
+              setState(() {});
+            },
+            icon: Icon(
+              showIcon ? Icons.favorite : Icons.favorite_border_outlined,
+              color: showIcon ? Colors.red : Colors.black,
             ),
           ),
         ],
@@ -36,7 +45,7 @@ class ArticleDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              article.title,
+              widget.article.title,
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -49,7 +58,7 @@ class ArticleDetailScreen extends StatelessWidget {
               // margin: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(article.urlToImage),
+                  image: NetworkImage(widget.article.urlToImage),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
@@ -62,7 +71,7 @@ class ArticleDetailScreen extends StatelessWidget {
             Container(
               color: Colors.red,
               child: Text(
-                "${article.source.name}",
+                "${widget.article.source.name}",
                 style: const TextStyle(
                   color: Colors.white,
                 ),
@@ -74,7 +83,7 @@ class ArticleDetailScreen extends StatelessWidget {
             ),
             Text(
               // ignore: unnecessary_string_interpolations
-              "${article.description}",
+              "${widget.article.description}",
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
