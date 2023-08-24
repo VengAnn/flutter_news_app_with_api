@@ -32,7 +32,7 @@ Widget CustomListTile(Article article, BuildContext context) {
             height: 200,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(article.urlToImage),
+                image: NetworkImage("${article.urlToImage}"),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(12.0),
@@ -45,7 +45,7 @@ Widget CustomListTile(Article article, BuildContext context) {
           Container(
             color: Colors.red,
             child: Text(
-              "${article.source.name}",
+              "${article.source!.name}",
               style: const TextStyle(
                 color: Colors.white,
               ),

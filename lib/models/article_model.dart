@@ -5,13 +5,13 @@
 import 'package:news_app_api/models/source_model.dart';
 
 class Article {
-  final Source source;
+  final Source? source;
   String? author;
-  final String title;
-  final String description;
-  String url;
-  String urlToImage;
-  String publishedAt;
+  final String? title;
+  final String? description;
+  String? url;
+  String? urlToImage;
+  String? publishedAt;
   String? content;
 
   //Now let's create the Constructor
@@ -32,10 +32,10 @@ class Article {
       source: Source.fromJson(json['source']),
       author: json['author'],
       title: json['title'],
-      description: json['description'] as String,
+      description: json['description'],
       url: json['url'] as String,
-      urlToImage: json['urlToImage'] as String,
-      publishedAt: json['publishedAt'] as String,
+      urlToImage: json['urlToImage'],
+      publishedAt: json['publishedAt'],
       content: json['content'],
     );
   }

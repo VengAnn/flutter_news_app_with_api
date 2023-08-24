@@ -45,7 +45,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.article.title,
+              "${widget.article.title}",
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -58,7 +58,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
               // margin: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(widget.article.urlToImage),
+                  image: NetworkImage("${widget.article.urlToImage}"),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(12.0),
@@ -71,7 +71,7 @@ class _ArticleDetailScreenState extends State<ArticleDetailScreen> {
             Container(
               color: Colors.red,
               child: Text(
-                "${widget.article.source.name}",
+                "${widget.article.source!.name}",
                 style: const TextStyle(
                   color: Colors.white,
                 ),

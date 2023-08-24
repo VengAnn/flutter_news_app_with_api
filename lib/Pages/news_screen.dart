@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             }
             if (snapshot.hasError) {
               return Center(
-                child: Text("${snapshot.hasError}"),
+                child: Text("Error: ${snapshot.hasError}"),
               );
             }
             if (snapshot.data!.isEmpty || snapshot.data == null) {
